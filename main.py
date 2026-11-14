@@ -8,7 +8,7 @@ from PIL import Image
 app = FastAPI(title="MegaAPI")
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "models" / "all.pt"
+MODEL_PATH = BASE_DIR / "all.pt"
 
 
 @app.get("/")
@@ -27,7 +27,6 @@ def model_status():
 
     return {
         "name": "all.pt",
-        "loaded": False,
         "exists": exists,
         "size": MODEL_PATH.stat().st_size if exists else 0
     }
